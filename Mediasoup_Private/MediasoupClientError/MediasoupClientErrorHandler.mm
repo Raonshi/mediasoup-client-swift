@@ -29,7 +29,7 @@ void mediasoupTry(
 	} catch (const std::exception &e) {
 		*error = mediasoupError(MediasoupClientErrorCodeUnknown, &e);
 	} catch (id e) {
-		*error = [NSError errorWithDomain:MediasoupClientErrorDomain code:MediasoupClientErrorCodeUnknown userInfo:nil];
+		*error = [NSError errorWithDomain:MediasoupClientErrorDomain code:MediasoupClientErrorCodeUnknown userInfo:&e];
 	}
 }
 
