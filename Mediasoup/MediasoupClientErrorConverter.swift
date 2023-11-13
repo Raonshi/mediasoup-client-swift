@@ -11,6 +11,7 @@ internal func convertMediasoupErrors<T>(_ throwingClosure: () throws -> T) throw
 	do {
 		return try throwingClosure()
 	} catch let error as MediasoupClientError {
+        NSLog("[Mediasoup] MediasoupClient ERROR : \(error)")
 		switch error.code {
 			case .unsupported:
 				throw MediasoupError.unsupported(description(error))
@@ -28,6 +29,7 @@ internal func convertMediasoupErrors<T>(_ throwingClosure: () throws -> T) throw
 				throw MediasoupError.unknown(error)
 		}
 	} catch {
+        NSLog("[Mediasoup] ERROR : \(error)")
 		throw MediasoupError.unknown(error)
 	}
 }

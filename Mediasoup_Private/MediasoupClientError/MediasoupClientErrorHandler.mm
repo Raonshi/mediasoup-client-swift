@@ -15,7 +15,6 @@ NSError *_Nonnull const mediasoupError(
 void mediasoupTry(
 	void (^_Nonnull throwingBlock)(void),
 	NSError *__autoreleasing _Nullable *_Nullable error) {
-
 	try {
 		throwingBlock();
 	} catch (const MediaSoupClientUnsupportedError &e) {
